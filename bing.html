@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bing Maps</title>
+  </head>
+  <body>
+    <h1>Bing Maps</h1>
+    <a href="./index.html">Homepage</a>
+    <div  id='map'  style='height:380px;'    style='position:relative;'/>  
+    <script  type="text/javascript"  src="https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&s=1"></script>  
+    <script>  
+          var  map  =  new  Microsoft.Maps.Map(document.getElementById('map'),    
+                      {    center:  new  Microsoft.Maps.Location(51.505,  -0.09),  zoom:11  }  );  
+      
+          var  waqiTileOptions  =  {  uriConstructor:  function  (quadkey)  {  
+                return  "https://tiles.waqi.info/tiles/usepa-aqi/"  +  quadkey.levelOfDetail+"/"+quadkey.x+"/"+  quadkey.y  +  ".png?token=03c0ea707942feff1e876e860b866cb3cd2c8993";  
+          }  };  
+          var  waqiTileSource  =  new  Microsoft.Maps.TileSource(waqiTileOptions);  
+          var  waqiTilelayer  =  new  Microsoft.Maps.TileLayer({  mercator:  waqiTileSource  });  
+          map.entities.push(waqiTilelayer);  
+    </script>    
+  </body>
+</html>

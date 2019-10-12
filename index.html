@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script type="text/javascript" charset="utf-8">
+      (function(w, d, t, f) {
+        w[f] =
+          w[f] ||
+          function(c, k, n) {
+            (s = w[f]), (k = s["k"] = s["k"] || (k ? "&k=" + k : ""));
+            s["c"] = c = c instanceof Array ? c : [c];
+            s["n"] = n = n || 0;
+            (L = d.createElement(t)), (e = d.getElementsByTagName(t)[0]);
+            L.async = 1;
+            L.src =
+              "//feed.aqicn.org/feed/" +
+              c[n].city +
+              "/" +
+              (c[n].lang || "") +
+              "/feed.v1.js?n=" +
+              n +
+              k;
+            e.parentNode.insertBefore(L, e);
+          };
+      })(window, document, "script", "_aqiFeed");
+    </script>
+  </head>
+  <body>
+    <h1>TEST AQICN</h1>
+    <!-- <div><span id="city-01-aqi-container"></span></div> -->
+    <a href="./leaflet.html">Leaflet</a>
+    <a href="./googlemaps.html">Google Maps</a>
+    <a href="bing.html">Bing Maps</a>
+    <div><span id="city-02-aqi-container"></span></div>
+    <div name="airvisual_widget" key="ueXAT4EwZ5rEaCm36"></div>
+    <script
+      type="text/javascript"
+      src="https://www.airvisual.com/scripts/widget_v2.0.js"
+    ></script>
+    <script type="text/javascript" charset="utf-8">
+      // _aqiFeed({ container: "city-01-aqi-container", city: "beijing" }); vietnam/hanoi/
+      // _aqiFeed({
+      //   display: "%details",
+      //   container: "city-02-aqi-container",
+      //   city: "vietnam/ha-long"
+      // });
+      _aqiFeed({
+        display: "%details",
+        container: "city-02-aqi-container",
+        city: "vietnam/ho-chi-minh-city/us-consulate/"
+      });
+      // _aqiFeed({
+      //   display: "%details",
+      //   container: "city-02-aqi-container",
+      //   city: "vietnam/hanoi/"
+      // });
+      // _aqiFeed({
+      //   display: "%details",
+      //   container: "city-02-aqi-container",
+      //   city: "vietnam/hanoi/us-embassy"
+      // });
+      // _aqiFeed({
+      //   display: "%details",
+      //   container: "city-02-aqi-container",
+      //   city: "beijing"
+      // });
+    </script>
+    <!-- <script type="text/javascript" charset="utf-8">
+      _aqiFeed({ container: "city-01-aqi-container", city: "beijing" });
+    </script> -->
+  </body>
+</html>
