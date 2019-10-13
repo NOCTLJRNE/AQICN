@@ -31,10 +31,11 @@
     <h1>TEST AQICN</h1>
     <!-- <div><span id="city-01-aqi-container"></span></div> -->
     <a href="./leaflet.html">Leaflet</a>
-    <a href="./googlemaps.html">Google Maps</a>
+    <!-- <a href="./googlemaps.html">Google Maps</a> -->
     <a href="bing.html">Bing Maps</a>
     <div><span id="city-02-aqi-container"></span></div>
     <div name="airvisual_widget" key="ueXAT4EwZ5rEaCm36"></div>
+    <div  id='map'  style='height:380px;'  />
     <script
       type="text/javascript"
       src="https://www.airvisual.com/scripts/widget_v2.0.js"
@@ -70,5 +71,23 @@
     <!-- <script type="text/javascript" charset="utf-8">
       _aqiFeed({ container: "city-01-aqi-container", city: "beijing" });
     </script> -->
+    <script  src="https://maps.googleapis.com/maps/api/js"></script>  
+    <script>  
+          var  map  =  new  google.maps.Map(document.getElementById('map'),  {  
+                      center:  new  google.maps.LatLng(10.755,  106.65),  
+                      mapTypeId:  google.maps.MapTypeId.ROADMAP,  
+                      zoom:  11  
+                  });  
+      
+                                  var  t  =  new  Date().getTime();  
+          var  waqiMapOverlay  =  new  google.maps.ImageMapType({  
+                      getTileUrl:  function(coord,  zoom)  {  
+                                return  'https://tiles.waqi.info/tiles/usepa-aqi/'  +  zoom  +  "/"  +  coord.x  +  "/"  +  coord.y  +  ".png?token=03c0ea707942feff1e876e860b866cb3cd2c8993";  
+                      },  
+                      name:  "Air  Quality",  
+            });  
+      
+          map.overlayMapTypes.insertAt(0,waqiMapOverlay);  
+    </script>  
   </body>
 </html>
