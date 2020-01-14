@@ -1,0 +1,19 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/waqi-scraping/node_modules
+
+# data
+/waqi-scraping/keys/aqi-api-fa025-69e3ad30f3d2.json
+/waqi-scraping/data
+
+# misc
+/waqi-scraping/.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -29,13 +29,18 @@
   </head>
   <body>
     <h1>TEST AQICN</h1>
+    <button type="button" class="btn btn-primary">Primary</button>
     <!-- <div><span id="city-01-aqi-container"></span></div> -->
     <a href="./leaflet.html">Leaflet</a>
-    <!-- <a href="./googlemaps.html">Google Maps</a> -->
+    <a href="./googlemaps.html">Google Maps</a>
     <a href="bing.html">Bing Maps</a>
     <div><span id="city-02-aqi-container"></span></div>
     <div name="airvisual_widget" key="ueXAT4EwZ5rEaCm36"></div>
-    <div  id='map'  style='height:380px;'  />
+    <!-- <div  id='map'  style='height:380px;'  /> -->
+    <div  id='map'  style='height:380px;'  />  
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>  
     <script
       type="text/javascript"
       src="https://www.airvisual.com/scripts/widget_v2.0.js"
@@ -71,7 +76,7 @@
     <!-- <script type="text/javascript" charset="utf-8">
       _aqiFeed({ container: "city-01-aqi-container", city: "beijing" });
     </script> -->
-    <script  src="https://maps.googleapis.com/maps/api/js"></script>  
+    <!-- <script  src="https://maps.googleapis.com/maps/api/js"></script>  
     <script>  
           var  map  =  new  google.maps.Map(document.getElementById('map'),  {  
                       center:  new  google.maps.LatLng(10.755,  106.65),  
@@ -88,6 +93,24 @@
             });  
       
           map.overlayMapTypes.insertAt(0,waqiMapOverlay);  
-    </script>  
+    </script>   -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+      
+    <script>  
+          var  OSM_URL  =  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';  
+          var  OSM_ATTRIB  =  '&copy;  <a  href="http://openstreetmap.org/copyright">OpenStreetMap</a>  contributors';  
+          var  osmLayer  =  L.tileLayer(OSM_URL,  {attribution:  OSM_ATTRIB});  
+      
+          var  WAQI_URL    =  "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=03c0ea707942feff1e876e860b866cb3cd2c8993";  
+          var  WAQI_ATTR  =  'Air  Quality  Tiles  &copy;  <a  href="http://waqi.info">waqi.info</a>';  
+          var  waqiLayer  =  L.tileLayer(WAQI_URL,  {attribution:  WAQI_ATTR});  
+      
+          var  map  =  L.map('map').setView([10.755,  106.65],  11);  
+          // map.addLayer(osmLayer).addLayer(waqiLayer);  
+          map.addLayer(osmLayer);
+          // map.addLayer(waqiLayer);
+    </script>      
   </body>
 </html>
