@@ -70,7 +70,10 @@ axios
       //         console.error(error);
       //       });
       //   }
-
+      fs.writeFileSync(
+        `data/byCities/${cities[index]}/${fileName}`,
+        JSON.stringify(element.data.data)
+      );
       let docRef = db
         .collection("byCities")
         .doc(cities[index])
@@ -98,7 +101,10 @@ axios
       responseDataArray.push(namedData);
       console.log(`City: ${name}, AQI: ${aqi}`);
     });
-
+    fs.writeFileSync(
+      `data/byDate/${fileName}`,
+      JSON.stringify({ array: responseDataArray })
+    );
     let docRef = db.collection("byDate").doc(`${fileName}`);
     docRef
       .set({ array: responseDataArray })
