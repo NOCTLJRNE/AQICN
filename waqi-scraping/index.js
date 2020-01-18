@@ -49,11 +49,13 @@ axios
     let day = date.getUTCDate();
     let monthIndex = date.getUTCMonth();
     let year = date.getUTCFullYear();
-
-    let timeString = `${year}-${month + 1}-${day}, ${hours + 1}:${minutes +
-      1}:${seconds + 1}`;
-    let fileName = `${year}-${month[monthIndex]}-${day}, ${hours +
-      1}-${minutes + 1}-${seconds + 1}.json`;
+    let secondsString = seconds + 1 < 10 ? `0${seconds + 1}` : `${seconds + 1}`;
+    let minutesString = minutes + 1 < 10 ? `0${minutes + 1}` : `${minutes + 1}`;
+    let hoursString = hours + 1 < 10 ? `0${hours + 1}` : `${hours + 1}`;
+    let dayString = day < 10 ? `0${day}` : `${day}`;
+    let timeString = `${year}-${month +
+      1}-${dayString}, ${hoursString}:${minutesString}:${secondsString}`;
+    let fileName = `${year}-${month[monthIndex]}-${dayString}, ${hoursString}-${minutesString}-${secondsString}.json`;
     response.forEach((element, index) => {
       //   if (index == 0) {
       //     let docRef = db

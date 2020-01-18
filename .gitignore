@@ -4,8 +4,7 @@
 /waqi-scraping/node_modules
 
 # data
-/waqi-scraping/keys/aqi-api-fa025-69e3ad30f3d2.json
-/waqi-scraping/data
+/waqi-scraping/keys/
 
 # misc
 /waqi-scraping/.DS_Store
