@@ -30,15 +30,15 @@ citiesArray.forEach(element => {
       let at_time = data.at_time.match(regexp2);
       let at_time_replaced = at_time[0].replace(/\//g, "-");
 
-      //   let docRef = db
-      //     .collection("byCities")
-      //     .doc(element.city)
-      //     .collection("Widget-API-Data")
-      //     .doc(at_time_replaced);
-      //   docRef
-      //     .set(data)
-      //     .then(response => {})
-      //     .catch(error => console.error(error));
+      let docRef = db
+        .collection("byCities")
+        .doc(element.city)
+        .collection("Widget-API-Data")
+        .doc(at_time_replaced);
+      docRef
+        .set(data)
+        .then(response => {})
+        .catch(error => console.error(error));
 
       let at_time_replaced2 = at_time_replaced.replace(/\s/g, "_");
       let at_time_replaced3 = at_time_replaced2.replace(/:/g, "h");

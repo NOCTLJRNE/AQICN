@@ -11,12 +11,15 @@
     "getHourlyQIdetail": "node getHourlyQIdetail.js",
     "getDailyQIdetail": "node getDailyQIdetail.js",
     "getWidgetAPI": "node getWidgetAPI.js",
-    "getWeather": "node getWeather.js"
+    "getWeather": "node getWeather.js",
+    "testProduction": "node testProduction.js",
+    "getDailyHCMAQI": "node getDailyHCMAQI.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "firebase-admin": "^8.9.0",
     "node-fetch": "^2.6.0"
   }
